@@ -36,8 +36,12 @@ import falcon
 from messenger_hook.falcon_messenger import FalconMessenger
 
 class MyMessenger(FalconMessenger):
-    def transform_message(self, message):
-        return 'You sent {}'.format(message)
+    def transform_message(self, text, attachments):
+        if text:
+            return 'You sent {}'.format(message)
+        elif attachments:
+            return 'Yout sent an attachment'
+        return 'You sent nothing'
 
 app = falcon.API()
 hook = FalconMessenger('verify_key', 'your_token')

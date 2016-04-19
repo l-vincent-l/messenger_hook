@@ -12,23 +12,29 @@ class Messenger:
             self.handle_entry(entry)
 
     def handle_entry(self, entry):
-        for message in entry['messaging']:
-            if not 'message' in message or 'text' not in message['message']:
+        for messaging in entry['messaging']:
+            if not 'message' in messaging:
                 continue
-            self.handle_message(message)
+            message = messaging['message']
+            self.handle_message(messaging['sender']['id'],
+               message.get('text', None), message.get('attachments', None))
 
-    def handle_message(self, message):
-        self.reply(message['sender']['id'],
-           self.transform_message(message['message']['text']))
+    def handle_message(self, recipient_id, text, attachments):
+        self.reply(recipient_id,
+           self.transform_message(text, attachments))
 
-    def reply(self, sender, message):
+    def reply(self, recipient_id, message):
         requests.post(self.fb_url,
             params={'access_token': self.token},
             json={
-                'recipient': {'id': sender},
+                'recipient': {'id': recipient_id},
                 'message': {'text': message}
                 }
             )
 
-    def transform_message(self, message):
-        return message
+    def transform_message(self, text, attachments):
+        if text:
+            return text
+        if attachments:
+            return 'attachments'
+        return 'Nothing'
