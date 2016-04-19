@@ -9,7 +9,7 @@ with open('requirements.txt', encoding='utf-8') as reqs:
 setup(
   name = 'messenger_hook',
   packages = ['messenger_hook'], # this must be the same as the name above
-  version = '0.1.1',
+  version = '0.1.4',
   description = 'A library to create hooks for facebook messenger',
   author = 'Vincent Lara',
   author_email = 'lara.vincent@gmail.com',
