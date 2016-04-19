@@ -24,6 +24,7 @@ hook = FalconMessenger('verify_key', 'your_token')
 app.add_route('/hook/', hook)
 ```
 
+You need to install falcon to use it with falcon.
 You can launch it with gunicorn or uwsgi
 
 
