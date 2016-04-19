@@ -19,7 +19,7 @@ Build a ping application
 import falcon
 from messenger_hook.falcon_messenger import FalconMessenger
 
-app = Falcon()
+app = falcon.API()
 hook = FalconMessenger('verify_key', 'your_token')
 app.add_route('/hook/', hook)
 ```
@@ -39,7 +39,7 @@ class MyMessenger(FalconMessenger):
     def transform_message(self, message):
         return 'You sent {}'.format(message)
 
-app = Falcon()
+app = falcon.API()
 hook = FalconMessenger('verify_key', 'your_token')
 app.add_route('/hook/', hook)
 ```
