@@ -14,7 +14,7 @@ setup(
   author = 'Vincent Lara',
   author_email = 'lara.vincent@gmail.com',
   url = 'https://github.com/l-vincent-l/messenger_hook',
-  download_url = 'https://github.com/l-vincent-l/messenger_hook/tarball/0.1',
+  download_url = 'https://github.com/l-vincent-l/messenger_hook/archive/v0.2-beta.tar.gz',
   keywords = ['facebook', 'messenger'],
   classifiers = [
     'Programming Language :: Python :: 3',
