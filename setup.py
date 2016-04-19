@@ -9,14 +9,17 @@ with open('requirements.txt', encoding='utf-8') as reqs:
 setup(
   name = 'messenger_hook',
   packages = ['messenger_hook'],
-  version = '0.1.4',
+  version = '0.1.5',
   description = 'A library to create hooks for facebook messenger',
   author = 'Vincent Lara',
   author_email = 'lara.vincent@gmail.com',
   url = 'https://github.com/l-vincent-l/messenger_hook',
   download_url = 'https://github.com/l-vincent-l/messenger_hook/tarball/0.1',
   keywords = ['facebook', 'messenger'],
-  classifiers = [],
+  classifiers = [
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3.4',
+  ],
   extras_require = {
       'falcon': ['falcon']
   },
